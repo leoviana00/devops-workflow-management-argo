@@ -1,0 +1,17 @@
+kind: Kustomization
+
+bases:
+- ../../base
+
+namespace: webserver-prod
+
+commonLabels:
+  env: prod
+
+commonAnnotations:
+  note: Production deployment of webserver-go-01
+
+patchesStrategicMerge:
+- deployment.yaml
+- hpa.yaml
+- configmap.yaml
